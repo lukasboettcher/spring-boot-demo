@@ -22,7 +22,7 @@ public class BookController {
     @Autowired
     private AuthorRepository authorRepository;
 
-    @GetMapping("/books")
+    @GetMapping("/")
     public String getAllBooks(Model model) {
         List<Book> books = bookRepository.findAll();
         model.addAttribute("books", books);
@@ -47,6 +47,6 @@ public class BookController {
         book.setAuthor(author);
         bookRepository.save(book);
 
-        return "redirect:/books";
+        return "redirect:/";
     }
 }
